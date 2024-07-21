@@ -1,0 +1,12 @@
+<div class="card">
+    <p-menubar [model]="items">
+        <ng-template pTemplate="start">
+            <p style="color: blue; font-size: large;">Angular CRUD App</p>
+        </ng-template>
+    </p-menubar>
+    <router-outlet></router-outlet>
+</div>
+
+<ngx-spinner type="pacman" bdColor="rgba(38, 43, 73,.8"
+    template="<i class='pi pi-spin pi-cog' style='font-size: 2rem'></i>">
+</ngx-spinner>

@@ -1,0 +1,200 @@
+<p-toast />
+<p-toolbar styleClass="mb-4 gap-2">
+    <ng-template pTemplate="left">
+        <p-button
+            severity="success" 
+            label="Add New User" 
+            icon="pi pi-plus" 
+            class="mr-2" 
+            (onClick)="openNew()" />
+    </ng-template>
+</p-toolbar>
+
+<p-table
+    #dt
+    [value]="users"
+    [rows]="10"
+    [paginator]="true"
+    [tableStyle]="{ 'min-width': '75rem' }"
+    [rowHover]="true"
+    dataKey="id"
+    currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries"
+    [showCurrentPageReport]="true"
+>
+    <ng-template pTemplate="caption">
+        <div class="flex align-items-center justify-content-between">
+            <h5 class="m-0">Manage Users</h5>
+        </div>
+    </ng-template>
+    <ng-template pTemplate="header">
+        <tr>
+            <th style="min-width:15rem">
+                Name
+            </th>
+            <th>
+                Email
+            </th>
+            <th>
+                Phone
+            </th>
+            <th style="min-width:10rem">
+                Street
+            </th>
+            <th>
+                City
+            </th>
+            <th style="min-width:10rem">
+                Zipcode
+            </th>
+            <th></th>
+        </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-user>
+        <tr>
+            <td>
+                {{ user.name }}
+            </td>
+            <td>
+                {{ user.email }}
+            </td>
+            <td>
+                {{ user.phone }}
+            </td>
+            <td>
+                {{ user.address.street }}
+            </td>
+            <td>
+                {{ user.address.city }}
+            </td>
+            <td>
+                {{ user.address.zipcode }}
+            </td>
+            <td>
+                <p-button 
+                    icon="pi pi-pencil" 
+                    class="mr-2" 
+                    [rounded]="true" 
+                    [outlined]="true" 
+                    severity="success" 
+                    (onClick)="editUserOpen(user)" />
+                <p-button 
+                    icon="pi pi-trash" 
+                    severity="danger" 
+                    [rounded]="true" 
+                    [outlined]="true" 
+                    (onClick)="deleteUser(user)" />
+            </td>
+        </tr>
+    </ng-template>
+    <ng-template pTemplate="summary">
+        <div class="flex align-items-center justify-content-between">
+            In total there are {{ users ? users.length : 0 }} users.
+        </div>
+    </ng-template>
+</p-table>
+
+<p-dialog 
+    [(visible)]="userDialog" 
+    [style]="{ width: '450px' }" 
+    header="User Details" 
+    [modal]="true" 
+    styleClass="p-fluid">
+        <ng-template pTemplate="content">
+            <div class="field">
+                <label for="name">Name</label>
+                <input 
+                    type="text" 
+                    pInputText 
+                    id="name" 
+                    [(ngModel)]="user.name" 
+                    (input)="nameValidation($event)"
+                    required 
+                    autofocus />
+                <small class="p-error" *ngIf="submitted && !user.name">
+                    Name is required.
+                </small>
+            </div>
+            <div class="field">
+                <label for="email">Email</label>
+                <input 
+                    type="text" 
+                    pInputText 
+                    id="email" 
+                    [(ngModel)]="user.email" 
+                    (input)="emailValidation($event)"
+                    required />
+                <small class="p-error" *ngIf="submitted && !user.email">
+                    Email is required.
+                </small>
+            </div>
+            <div class="field">
+                <label for="phone">Phone</label>
+                <input 
+                    type="text" 
+                    pInputText 
+                    id="phone" 
+                    [(ngModel)]="user.phone" 
+                    (input)="phoneValidation($event)"
+                    maxlength="10"
+                    required />
+                <small class="p-error" *ngIf="submitted && !user.phone">
+                    Phone is required.
+                </small>
+            </div>
+            <div class="field">
+                <label for="street">Street</label>
+                <input 
+                    type="text" 
+                    pInputText 
+                    id="street" 
+                    [(ngModel)]="user.street" 
+                    (input)="streetValidation($event)"
+                    required />
+                <small class="p-error" *ngIf="submitted && !user.street">
+                    Street is required.
+                </small>
+            </div>
+            <div class="field">
+                <label for="city">City</label>
+                <input 
+                    type="text" 
+                    pInputText 
+                    id="city" 
+                    [(ngModel)]="user.city" 
+                    (input)="cityValidation($event)"
+                    required />
+                <small class="p-error" *ngIf="submitted && !user.city">
+                    City is required.
+                </small>
+            </div>
+            <div class="field">
+                <label for="zipcode">Zipcode</label>
+                <input 
+                    type="text" 
+                    pInputText 
+                    id="zipcode" 
+                    [(ngModel)]="user.zipcode" 
+                    (input)="zipcodeValidation($event)"
+                    required />
+                <small class="p-error" *ngIf="submitted && !user.zipcode">
+                    Zipcode is required.
+                </small>
+            </div>
+            
+        </ng-template>
+
+        <ng-template pTemplate="footer">
+            <p-button 
+                label="Cancel" 
+                icon="pi pi-times" 
+                [text]="true" 
+                (onClick)="hideDialog()" />
+            <p-button
+                label="Save" 
+                icon="pi pi-check" 
+                [text]="true" 
+                (onClick)="confirmSave()" />
+        </ng-template>
+</p-dialog>
+
+<p-confirmDialog [style]="{ width: '450px' }" />

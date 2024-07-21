@@ -1,0 +1,221 @@
+@media screen and (min-width:1366px) {
+    .container {
+        max-width: 1300px;
+    }
+}
+
+
+@media screen and (max-width:1366px) {
+
+}
+
+
+@media screen and (max-width:1200px) {
+
+
+}
+
+
+@media screen and (max-width:1050px) {
+
+}
+
+@media screen and (max-width:992px) {
+    body {
+        font-size: 14px;
+    }
+    h1{font-size: 35px;}
+h2{font-size: 28px;}
+h3{font-size: 25px;}
+h4{font-size: 22px;}
+h5{font-size: 18px;}
+h6{font-size: 16px;}
+
+.left_pannel {
+    margin-left: -240px;
+    position: fixed;
+    left: 0;
+    top: 0;
+    z-index: 9999;
+    bottom: 0;
+}
+.right_pannel {
+    width: 100%;
+}
+.left_pannel.active {
+    margin-left: 0;
+}
+.right_top_header {
+    justify-content: flex-start;
+    flex-direction: row-reverse;
+}
+.right_top_header .headername {
+    display: none;
+}
+.right_top_header .menu {
+    margin-left: 15px;
+}
+.transaction_view_top_profile .right .box1
+{
+    border-right: none;
+}
+}
+
+@media screen and (max-width:850px) {
+
+
+}
+
+
+
+
+@media screen and (max-width:768px) {
+    
+    h1{font-size: 30px;}
+    h2{font-size: 24px;}
+    h3{font-size: 20px;}
+    .card
+    { 
+        padding: 15px;  
+    }
+    .table_area .table_header {
+        display: none;
+    }
+    .table_area .table_body > div {
+        width: 100% !important;
+        float: left;
+        margin: 5px 0;
+        display: flex;
+        align-items: flex-start;
+    }
+    .table_area .table_body {
+        flex-wrap: wrap;
+        display: block;
+        text-align: left;
+    }
+    .table_area .table_body .mobile_heading {
+        display: block;
+    }
+    .responsive_table .mobile_heading
+{
+    display: block;
+    float: left;
+    width: 100%;
+    font-weight: bold;
+}
+.login_left_area {
+    width: 100%;
+    min-height: auto;
+}
+.login_right_area {
+    width: 100%;
+    min-height: auto;
+    padding: 15px;
+    padding-bottom: 60px;
+    position: relative;
+}
+.login_right_area .form_section {
+    width: 100%;
+    max-width: 100%;
+    padding: 20px;
+}
+.order_search_area {
+    flex-wrap: wrap;
+}
+.order_search_area .order_right_area {
+    width: 100%;
+    margin-top: 5px;
+}
+.order_search_area .order_right_area select {
+    margin: 0 10px 0 0;
+}
+.order_search_area .order_left_area {
+    width: 100%;
+    max-width: 100%;
+}
+.plan_box1 .top_area {
+    flex-wrap: wrap;
+    justify-content: flex-start;
+}
+.plan_box1 .top_area .right_area {
+    margin-top: 15px;
+}
+.add_plan_video_bottom .left {
+    margin-right: 0;
+}
+.add_plan_video_bottom {
+    flex-wrap: wrap;
+}
+.add_plan_video_bottom .left {
+    flex-wrap: wrap;
+    margin-bottom: 10px;
+}
+.add_plan_video_bottom .left .form-control {
+    border-bottom: 1px solid #bfbfbf;
+    margin-bottom: 10px;
+}
+
+}
+
+
+@media screen and (max-width:650px) {
+    .start_date {
+        width: 100%;
+        justify-content: flex-start;
+        flex-wrap: wrap;
+        margin: 10px 0 !important;
+    }
+    .start_date .form-group
+    {
+        width: 100%;
+    }
+    .transaction_view_top_profile {
+        flex-wrap: wrap;
+    }
+    .transaction_view_top_profile .right {
+        padding: 0;
+        margin-top: 15px;
+    }
+    .transaction_view_top_profile .right .box1 {
+        padding: 0;
+    }
+
+}
+
+
+
+@media screen and (max-width:576px) {
+    .setting_card .heading {
+        display: none;
+    }
+    .setting_card .body_section .boxes .box1 .mobile_heading {
+        display: inline-block;
+        font-weight: bold;
+        margin-right: 10px;
+    }
+    .setting_card .body_section .boxes .box1 {
+        flex-wrap: wrap;
+    }
+    .setting_card .body_section .boxes .box1 > div {
+        width: 100% !important;
+        margin: 5px 0;
+        text-align: left !important;
+        display: flex;
+        align-items: center;
+    }
+    
+}
+
+
+@media screen and (max-width:480px) {}
+
+
+@media screen and (max-width:400px) {
+    .order_search_area .order_right_area {
+        flex-wrap: wrap;
+    }
+    .order_search_area .order_right_area select {
+        margin: 0 0 10px 0;
+    }
+
+}
